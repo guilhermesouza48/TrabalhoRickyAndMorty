@@ -20,7 +20,6 @@ const Cadaster = () => {
   const Verificacion = () => {
     return (
         <View>
-          
           <TouchableOpacity style={styles.Button} onPress={handleLogin}>
             <Text style={styles.TextButton}>Registrar mais um</Text>
           </TouchableOpacity>
