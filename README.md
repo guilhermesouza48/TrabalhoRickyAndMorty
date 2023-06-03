@@ -2,11 +2,11 @@
             🔫 Ricky And Morty APP  🔫
 </h1>
 
-## ** Para iniciar**
+## 🤳🏼 Para iniciar
 
-- Npm Install
-- Npm start
-- Npx react-native run-android
+- Npm Install (instalação do node modules);
+- Npm start (terminal 1);
+- Npx react-native run-android (terminal 2);
 
 
 ## 🔖 Páginas
