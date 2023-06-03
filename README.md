@@ -2,6 +2,13 @@
             🔫 Ricky And Morty APP  🔫
 </h1>
 
+## ** Para iniciar**
+
+- Npm Install
+- Npm start
+- Npx react-native run-android
+
+
 ## 🔖 Páginas
 
 O APP é composto por 4 páginas:
