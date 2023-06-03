@@ -1,113 +1,115 @@
-import { useNavigation } from "@react-navigation/native";
-import React, { useState } from "react";
+import React, {useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
+
 import {
-  View,
-  Text,
   StyleSheet,
+  Text,
+  View,
   TextInput,
-  TouchableOpacity,
-} from "react-native";
+  TouchableOpacity,ImageBackground
+} from 'react-native';
+
+
 const Cadaster = () => {
-  const [usuario, setusuario] = useState("");
-  const [telefone, settelefone] = useState("");
-  const [cpf, setcpf] = useState("");
-  const [email, setEmail] = useState("");
-  const [Curso, setCurso] = useState("");
-  const [Senha, setSenha] = useState("");
+  const [usuario, setUsuario] = useState('');
+  const [telefone, setTelefone] = useState('');
+  const [cpf, setCPF] = useState('');
+  const [email, setEmail] = useState('');
+  const [curso, setCurso] = useState('');
+  const [senha, setSenha] = useState('');
 
   const navigation = useNavigation();
 
-  const Verificacion = () => {
-    return (
-        <View>
-          <TouchableOpacity style={styles.Button} onPress={handleLogin}>
-            <Text style={styles.TextButton}>Registrar mais um</Text>
-          </TouchableOpacity>
-        </View>
-      );
+  const imagemfundo = {uri: 'https://mir-s3-cdn-cf.behance.net/project_modules/disp/45e4d1172166543.647a452e2e470.png'};
+
+  const handleCadastro = () => {
+    navigation.navigate('login');
   };
 
-  const handleLogin = () => {
-    navigation;
-  };
   return (
-    <View style={styles.ctnCadaster}>
+    <ImageBackground source={imagemfundo} resizeMode="cover" style={{flex: 1,
+      justifyContent: 'center'}}>
+    <View style={styles.container}>
       <TextInput
-        style={styles.Input}
+        style={styles.input}
         placeholder="Usuário"
-        placeholderTextColor={"black"}
+        placeholderTextColor={'#3AE880'}
         value={usuario}
-        onChangeText={setusuario}
+        onChangeText={setUsuario}
       />
       <TextInput
-        style={styles.Input}
-        placeholder="Telefone"
-        placeholderTextColor={"black"}
-        secureTextEntry={true}
-        value={telefone}
-        onChangeText={settelefone}
+        style={styles.input}
+        placeholder="Senha"
+        placeholderTextColor={'#3AE880'}
+        value={senha}
+        onChangeText={setSenha}
       />
       <TextInput
-        style={styles.Input}
-        placeholder="CPF"
-        placeholderTextColor={"black"}
-        secureTextEntry={true}
-        value={cpf}
-        onChangeText={setcpf}
-      />
-      <TextInput
-        style={styles.Input}
+        style={styles.input}
         placeholder="E-mail"
-        placeholderTextColor={"black"}
+        placeholderTextColor={'#3AE880'}
         value={email}
         onChangeText={setEmail}
       />
       <TextInput
-        style={styles.Input}
-        placeholderTextColor={"black"}
-        placeholder="Curso"
-        value={Curso}
-        onChangeText={setCurso}
+        style={styles.input}
+        placeholder="Telefone"
+        placeholderTextColor={'#3AE880'}
+        type="cel-phone"
+        options={{
+          maskType: 'BRL',
+          withDDD: true,
+          dddMask: '(99) ',
+        }}
+        value={telefone}
+        onChangeText={setTelefone}
       />
       <TextInput
-        style={styles.Input}
-        placeholderTextColor={"black"}
-        placeholder="Senha"
-        secureTextEntry={true}
-        value={Senha}
-        onChangeText={setSenha}
+        style={styles.input}
+        placeholder="CPF"
+        placeholderTextColor={'#3AE880'}
+        type="cpf"
+        value={cpf}
+        onChangeText={setCPF}
       />
 
-      <Verificacion />
+      
+
+      <TouchableOpacity style={styles.button} onPress={handleCadastro}>
+        <Text style={styles.buttonText}>Salvar!</Text>
+      </TouchableOpacity>
     </View>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  ctnCadaster: {
-    alignItems: "center",
-    justifyContent: "center",
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  Input: {
-    borderWidth: 1,
-    borderColor: "black",
-    color: "white",
-    padding: 15,
-    margin: 10,
-    width: "85%",
-    borderRadius: 180,
+  input: {
+    borderWidth: 2,
+    borderColor: '#3AE880',
+    borderRadius: 35,
+    paddingTop: 10,
+    paddingLeft: 25,
+    marginVertical: 10,
+    width: '80%',
+    color: 'white',
   },
-  Button: {
-    marginTop: 45,
-    backgroundColor: "black",
-    padding: 15,
-    width: "100%",
-    borderRadius: 180,
-    alignItems: "center",
+  button: {
+    marginTop: 50,
+    backgroundColor: '#3AE880',
+    borderRadius: 35,
+    padding: 10,
+    width: '50%',
+    alignItems: 'center',
   },
-  TextButton: {
-    color: "white",
-    fontWeight: "bold",
+  buttonText: {
+    color: 'black',
+    fontWeight: 'bold',
   },
 });
 
